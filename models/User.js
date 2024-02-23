@@ -20,14 +20,14 @@ const userSchema = new Schema(
             unique: true,
             validate: [validateEmail, 'Please use a valid email'],
         },
-        thoughts: {
+        thoughts: [{
             type: Schema.Types.ObjectId,
             ref: 'thoughts',
-        },
-        friends: {
+        }],
+        friends: [{
             type: Schema.Types.ObjectId,
             ref: 'user',
-        },
+        }],
     },
     {
         toJSON: {
