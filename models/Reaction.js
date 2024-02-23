@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const formatTime = require('../utils/time.js');
+const { formatTime } = require('../utils/time.js');
 
 const reactionSchema = new Schema(
     {
@@ -22,10 +22,6 @@ const reactionSchema = new Schema(
             get: formatTime,
         },
     },
-    {
-        toJSON: {
-            virtuals: true,
-        },
-        id: false,
-    }
 )
+
+module.exports = reactionSchema;
