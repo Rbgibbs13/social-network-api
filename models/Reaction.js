@@ -1,28 +1,26 @@
 const { Schema, model } = require('mongoose');
-
+const formatTime = require('../utils/time.js');
 
 const reactionSchema = new Schema(
     {
-        thoughtText: {
+        reactionId: {
+            type: Schema.Types.ObjectId,
+            default: new Schema.Types.ObjectId,
+        },
+        reactionBody: {
             type: String,
-            unique: true,
             required: true,
-            trim: true,
-            min_length: 1,
             max_length: 280,
         },
         username: {
             type: String,
             required: true,
         },
-        thoughts: [{
-            type: Schema.Types.ObjectId,
-            ref: 'thoughts',
-        }],
-        friends: [{
-            type: Schema.Types.ObjectId,
-            ref: 'friends',
-        }],
+        createdAt: {
+            type: Date,
+            default: Date.now,
+            get: formatTime,
+        },
     },
     {
         toJSON: {
