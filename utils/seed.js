@@ -127,7 +127,6 @@ connection.once('open', async() => {
         {
             username: "John Doe",
             email: "johndoe@email.com",
-            thoughts: thoughts,
         },
         {
             username: "Jane Deer",

@@ -42,11 +42,12 @@ module.exports = {
     },
 
     addFriend(req, res) {
-        User.findOneAndUpdate({ _id: req.params.userId})
+        console.log("HELLOW");
+        User.findOneAndUpdate({ _id: req.params.userId},
+            { $addToSet: { friends: req.body.userId }},
+            { new: true })
         .then((user) => {
-            let friend = User.findOne({ _id: req.params.friendId })
-            user.friends.push(friend);
-            user.save();
+            console.log(user);
             res.json(user);
         })
         .catch((err) => res.status(500).json(err));
