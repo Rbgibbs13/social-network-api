@@ -32,9 +32,8 @@ module.exports = {
     },
 
     removeUser(req, res) {
-        User.findOneAndDelete({ _id: req.params.userId})
+        User.deleteOne({ _id: req.params.userId})
         .then((user) => {
-            Thought.deleteMany({ _id: { $in: user.thoughts }});
             res.status(200).json(`Deleted : ${user}`);
             res.json(user);
         })
@@ -42,7 +41,6 @@ module.exports = {
     },
 
     addFriend(req, res) {
-        console.log("HELLOW");
         User.findOneAndUpdate({ _id: req.params.userId},
             { $addToSet: { friends: req.body.userId }},
             { new: true })
