@@ -6,7 +6,8 @@ API for a social networking app
 ### Description
 
 This is a back end API for a social network app that tracks users and their thoughts, reactions and friends.  
-Some snippets of code were taken from my previous work, such as the template for this ReadMe.  
+A lot of the changes I made came from referring to previous work. Some of the code came from previously work, but I tried to use documentation as much as I could.  
+All of the controllers, routes and models were from scratch and documentation only.
 
 ### Table of Contents
 * [Installation](#-Installation)
